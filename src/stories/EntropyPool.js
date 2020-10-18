@@ -1,6 +1,4 @@
 import React from 'react';
-// import { ResponsiveHeatMap } from '@nivo/heatmap'
-// import { generateCountriesData } from '@nivo/generators'
 import PropTypes from 'prop-types';
 import { HeatMap } from '@nivo/heatmap';
 
@@ -11,17 +9,17 @@ import { HeatMap } from '@nivo/heatmap';
 // website examples showcase many properties,
 // you'll often use just a few of them.
 
-export const EntropyPool = ({ width, height, data, indexBy}) => {
+export const EntropyPool = ({ width, height, data, indexBy,...args}) => {
     return (
         <div>
-            <h1>0</h1>
             <HeatMap
                 width={width}
                 height={height}
                 data={data}
                 indexBy={indexBy}
+                {...args}
             ></HeatMap>
-
+            <h1>0</h1>
         </div>
       );
 };
@@ -32,7 +30,6 @@ EntropyPool.propTypes = {
     height: PropTypes.number,
     indexBy: PropTypes.string,
   };
-
 
 EntropyPool.defaultProps = {
     margin: { top: 60, right: 80, bottom: 60, left: 80 },
