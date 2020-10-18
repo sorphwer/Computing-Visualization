@@ -34,3 +34,6 @@ Small.args = {
   size: 'small',
   label: 'Button',
 };
+
+export const Custom = Template.bind({});
+
