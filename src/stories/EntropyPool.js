@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { HeatMap } from '@nivo/heatmap';
-
+import MartixProvider from './data/MatrixProvider';
 
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -9,28 +8,21 @@ import { HeatMap } from '@nivo/heatmap';
 // website examples showcase many properties,
 // you'll often use just a few of them.
 
-export const EntropyPool = ({ width, height, data, indexBy,...args}) => {
+export const EntropyPool = ({width,height,col,row,...args}) => {
+    const Matrix = new MartixProvider(row,col);
     return (
         <div>
             <HeatMap
                 width={width}
                 height={height}
-                data={data}
-                indexBy={indexBy}
+                data={Matrix.data}
+                keys={Matrix.keys}
+                onClick={(e)=>Matrix.data[e.yKey][e.xKey]+=10}
+                hoverTarget={'cell'}
+                colors={'greens'}
                 {...args}
             ></HeatMap>
             <h1>0</h1>
         </div>
       );
 };
-
-//User Control
-EntropyPool.propTypes = {
-    width: PropTypes.number,
-    height: PropTypes.number,
-    indexBy: PropTypes.string,
-  };
-
-EntropyPool.defaultProps = {
-    margin: { top: 60, right: 80, bottom: 60, left: 80 },
-  };
