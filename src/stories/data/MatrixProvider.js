@@ -1,25 +1,17 @@
 export default class MatrixProvider {
-    // const data =[
-    //     {
-    //         'index':0,
-    //         0:20,
-    //         1:30,
-    //     },
-    //     {
-    //         'index':1,
-    //         0:20,
-    //         1:30,
-    //     }
-    // ]
     constructor(col,row){
-        this.data=[]
-        this.keys=[...Array(row).keys()] 
-        for(let i=0;i<col;i++){
-            let series = {'index':i}
-            for(let j=0;j<row;j++){
-                series[j]=0;
+        this.col=col;
+        this.row=row;
+        this.data=[];
+        for(let i=0;i<row;i++){
+            let series = {'index':'Row'+i.toString()}
+            for(let j=0;j<col;j++){
+                series['Col'+j.toString()]=j;
             }
             this.data.push(series);
         }
+    }
+    getCurrentValue(){
+        return this.data;
     }
 } 

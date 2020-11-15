@@ -13,6 +13,8 @@ export default {
         margin: { table: { disable: true } },
         width: { table: { disable: true } },
         height: { table: { disable: true } },
+        // col: { table: { disable: false } },
+        // row: { table: { disable: false } },
         // onClick: { action: 'clicked' }
       },
     //global init props
@@ -29,6 +31,6 @@ const Template = (args) => <EntropyPool {...args} />;
 export const Default = Template.bind({});
 //story props
 Default.args = {
-    col:4,
-    row:5,
+    col:9,
+    row:4,
 }
